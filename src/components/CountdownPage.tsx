@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Clock, Calendar, Sparkles, Heart, Gift } from 'lucide-react';
-import FloatingParticles from './FloatingParticles';
-import ConfettiRain from './ConfettiRain';
+import React, { useState, useEffect } from "react";
+import { Clock, Calendar, Sparkles, Heart, Gift } from "lucide-react";
+import FloatingParticles from "./FloatingParticles";
+import ConfettiRain from "./ConfettiRain";
 
 interface CountdownPageProps {
   birthdayDate: Date;
@@ -23,7 +23,12 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
   musicPlaying,
   onToggleMusic,
 }) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -39,7 +44,9 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
       }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -50,7 +57,7 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
   }, [birthdayDate, onBirthdayReached]);
 
   const formatNumber = (num: number) => {
-    return num.toString().padStart(2, '0');
+    return num.toString().padStart(2, "0");
   };
 
   if (!mounted) {
@@ -61,7 +68,7 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
     <div className="min-h-screen animated-gradient flex items-center justify-center relative overflow-hidden">
       <FloatingParticles />
       <ConfettiRain />
-      
+
       {/* Twinkling Stars */}
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: 50 }).map((_, i) => (
@@ -81,7 +88,8 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
       <div className="fixed bottom-4 right-4 z-50">
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 shadow-lg">
           <p className="text-sm text-gray-700 poppins font-medium">
-            Created by <span className="text-purple-600 font-semibold">Shahrear</span>
+            Created by{" "}
+            <span className="text-purple-600 font-semibold">Jane Alam</span>
           </p>
         </div>
       </div>
@@ -93,18 +101,18 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
               <Gift className="w-12 h-12 text-white" />
             </div>
           </div>
-          
+
           <h1 className="text-4xl sm:text-6xl font-bold dancing-script text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 mb-4 glow">
             Happy Birthday in Advance,
           </h1>
           <h2 className="text-5xl sm:text-7xl font-bold dancing-script text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 mb-6 glow">
-            Fariha!
+            Subrota!
           </h2>
-          
+
           <p className="text-xl sm:text-2xl text-gray-700 mb-8 poppins">
             Your Special Day is Almost Here!
           </p>
-          
+
           <div className="flex justify-center space-x-3 mb-8">
             {Array.from({ length: 5 }).map((_, i) => (
               <Heart
@@ -121,15 +129,17 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl max-w-4xl mx-auto mb-8">
           <div className="flex items-center justify-center mb-6">
             <Clock className="w-8 h-8 text-purple-600 mr-3" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 poppins">Countdown to Magic</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 poppins">
+              Countdown to Magic
+            </h3>
           </div>
-          
+
           <div className="grid grid-cols-4 gap-4 sm:gap-6">
             {[
-              { value: timeLeft.days, label: 'Days' },
-              { value: timeLeft.hours, label: 'Hours' },
-              { value: timeLeft.minutes, label: 'Minutes' },
-              { value: timeLeft.seconds, label: 'Seconds' },
+              { value: timeLeft.days, label: "Days" },
+              { value: timeLeft.hours, label: "Hours" },
+              { value: timeLeft.minutes, label: "Minutes" },
+              { value: timeLeft.seconds, label: "Seconds" },
             ].map((item, index) => (
               <div
                 key={index}
@@ -151,14 +161,16 @@ const CountdownPage: React.FC<CountdownPageProps> = ({
         <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 shadow-xl max-w-md mx-auto">
           <div className="flex items-center justify-center mb-4">
             <Calendar className="w-6 h-6 text-purple-600 mr-2" />
-            <h4 className="text-xl font-semibold text-gray-800 poppins">The Big Day</h4>
+            <h4 className="text-xl font-semibold text-gray-800 poppins">
+              The Big Day
+            </h4>
           </div>
           <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 dancing-script">
-            {birthdayDate.toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
+            {birthdayDate.toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </p>
         </div>

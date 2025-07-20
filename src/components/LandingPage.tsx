@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Heart, Gift } from 'lucide-react';
-import FloatingParticles from './FloatingParticles';
-import myAudio from '../../public/cool_music.mp3';
+import React, { useState, useEffect } from "react";
+import { Sparkles, Heart, Gift } from "lucide-react";
+import FloatingParticles from "./FloatingParticles";
+import myAudio from "../../public/cool_music.mp3";
 
 interface LandingPageProps {
   onPasswordSuccess: () => void;
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     setIsLoading(true);
-    setError('');
+    setError("");
 
     setTimeout(() => {
-      if (password === 'shahrear') {
+      if (password === "janealam") {
         onPasswordSuccess();
         const audio = new Audio(myAudio);
-        audio.loop = true; 
+        audio.loop = true;
         audio.play();
-        
       } else {
-        setError('Oops! Try again, my Fariha!');
-        setPassword('');
+        setError("Oops! Try again, Mayabini!");
+        setPassword("");
       }
       setIsLoading(false);
     }, 1000);
@@ -36,7 +35,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
   return (
     <div className="min-h-screen animated-gradient flex items-center justify-center relative overflow-hidden">
       <FloatingParticles />
-      
+
       {/* Sparkles */}
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: 20 }).map((_, i) => (
@@ -57,7 +56,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
       <div className="fixed bottom-4 right-4 z-50">
         <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 shadow-lg">
           <p className="text-sm text-gray-700 poppins font-medium">
-            Created by <span className="text-purple-600 font-semibold">Shahrear</span>
+            Created by{" "}
+            <span className="text-purple-600 font-semibold">Jane Alam</span>
           </p>
         </div>
       </div>
@@ -69,14 +69,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
               <Gift className="w-8 h-8 text-white" />
             </div>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl font-bold dancing-script text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 mb-4 glow">
             Something Special for You,
           </h1>
           <h2 className="text-5xl sm:text-6xl font-bold dancing-script text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 mb-6 glow">
-            Fariha!
+            Suvrota!
           </h2>
-          
+
           <div className="flex justify-center space-x-2 mb-6">
             {Array.from({ length: 3 }).map((_, i) => (
               <Heart
@@ -91,7 +91,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2 poppins">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 mb-2 poppins"
+            >
               Enter the secret word to unlock your surprise
             </label>
             <input
@@ -100,7 +103,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-gray-500 poppins"
-              placeholder="Type your ex bf name..."
+              placeholder="Type your friend name..."
               required
             />
           </div>
@@ -122,15 +125,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onPasswordSuccess }) => {
                 Unlocking...
               </span>
             ) : (
-              'Unlock the Magic ✨'
+              "Unlock the Magic ✨"
             )}
           </button>
         </form>
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600 poppins">
-            Created with 💜 just for Fariha
-
+            Created with 💜 just for Suvrota
           </p>
         </div>
       </div>
